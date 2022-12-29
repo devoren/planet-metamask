@@ -1,0 +1,159 @@
+.participation {
+	&__head {
+		width: 695px;
+
+		.tableHead {
+			width: calc(100% - 27px);
+			border-collapse: separate;
+			border-spacing: 0;
+			table-layout: fixed;
+			position: relative;
+
+			thead {
+				tr {
+					position: relative;
+					z-index: 100;
+
+					th {
+						top: 0;
+						position: sticky;
+						width: calc(100% - 27px);
+						background-color: var(--base-color);
+						border-bottom: 1px solid var(--primary-color);
+					}
+				}
+			}
+
+			&__header {
+				font-family: "Bebas Neue";
+				font-style: normal;
+				font-weight: 400;
+				font-size: 24px;
+				line-height: 120%;
+				color: var(--primary-color);
+				text-align: left;
+				padding: 0 0 16px;
+
+				&:first-child {
+					width: 180px;
+				}
+			}
+		}
+	}
+	&__container {
+		width: 695px;
+		height: 550px;
+		overflow-y: auto;
+		overflow-x: hidden;
+
+		&::-webkit-scrollbar {
+			width: 2px;
+			background-color: transparent;
+
+			&-track {
+				background-color: var(--primary-color);
+				border-radius: 2px;
+				width: 1px;
+			}
+
+			&-thumb {
+				background-color: var(--main-color);
+				border-radius: 5px;
+				background-clip: padding-box;
+
+				&:hover {
+					background-color: var(--main-hover-color);
+				}
+			}
+
+			&-corner {
+				display: none;
+			}
+		}
+
+		.table {
+			width: calc(100% - 27px);
+			border-collapse: separate;
+			border-spacing: 0;
+			table-layout: fixed;
+			position: relative;
+
+			tbody tr {
+				display: table;
+				width: 100%;
+				table-layout: fixed;
+				position: absolute;
+				top: 0;
+			}
+
+			thead {
+				tr {
+					position: relative;
+					z-index: 100;
+
+					th {
+						top: 0;
+						position: sticky;
+						width: calc(100% - 27px);
+						background-color: var(--base-color);
+						border-bottom: 1px solid var(--primary-color);
+					}
+				}
+			}
+
+			&__header {
+				font-family: "Bebas Neue";
+				font-style: normal;
+				font-weight: 400;
+				font-size: 24px;
+				line-height: 120%;
+				color: var(--primary-color);
+				text-align: left;
+				padding: 0 0 16px;
+
+				&:first-child {
+					width: 180px;
+				}
+			}
+
+			&__body {
+				// display: block;
+				// width: calc(100% + 2px); // + scroll width
+				// height: 550px;
+				// overflow-y: auto;
+				// overflow-x: hidden;
+				width: 100%;
+				position: relative;
+
+				tr {
+					border-bottom: 1px solid var(--primary-color);
+
+					.table__item {
+						font-family: "Noto Sans Lao";
+						font-style: normal;
+						font-weight: 400;
+						font-size: 14px;
+						line-height: 18px;
+						color: var(--primary-color);
+						padding: 16px 0;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+						overflow: hidden;
+
+						&:first-child {
+							width: 180px;
+						}
+
+						&:last-child {
+							padding-right: 24px;
+						}
+					}
+
+					.table__my_item {
+						color: var(--main-color);
+					}
+				}
+			}
+		}
+	}
+}

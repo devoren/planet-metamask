@@ -1,0 +1,164 @@
+html,
+body {
+	margin: 0;
+	box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: var(--base-color);
+}
+
+a {
+	color: var(--main-color);
+
+	&:hover {
+		color: var(--main-hover-color);
+	}
+}
+
+button {
+	outline: none;
+	border: none;
+	color: var(--primary-color);
+	background-color: var(--main-color);
+	transition: background-color 0.3s;
+	text-transform: uppercase;
+	cursor: pointer;
+
+	&:hover {
+		background-color: var(--main-hover-color);
+	}
+
+	&:disabled {
+		background-color: var(--main-color);
+		opacity: 0.5;
+	}
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+	background-color: transparent;
+
+	&-track {
+		background-color: transparent;
+		border-radius: 5px;
+	}
+
+	&-thumb {
+		background-color: var(--main-color);
+		border-radius: 5px;
+
+		&:hover {
+			background-color: var(--main-hover-color);
+		}
+	}
+
+	&-corner {
+		background-color: #ffffff;
+	}
+}
+
+.fields {
+	display: flex;
+	flex-direction: column;
+	.field {
+		display: flex;
+		flex-direction: column;
+		padding-bottom: 22px;
+
+		.label {
+			font-family: "Bebas Neue";
+			font-style: normal;
+			font-weight: 400;
+			font-size: 24px;
+			line-height: 120%;
+			color: var(--primary-color);
+			margin: 0;
+			padding-bottom: 8px;
+		}
+
+		.field_data {
+			font-family: "Bebas Neue";
+			font-style: normal;
+			font-weight: 400;
+			font-size: 32px;
+			line-height: 120%;
+			color: var(--main-color);
+			margin: 0;
+		}
+	}
+
+	button {
+		padding: 10px 24px 6px;
+		border-radius: 30px;
+		font-family: "Bebas Neue";
+		font-size: 18px;
+		line-height: 120%;
+		cursor: pointer;
+		width: max-content;
+
+		&:disabled {
+			cursor: default;
+		}
+	}
+}
+
+.circle {
+	.circle__svg {
+		stroke-width: 1px;
+		fill: none;
+		stroke: var(--main-color);
+		transform-box: fill-box;
+		transform-origin: center center;
+		transform: rotate(-90deg);
+	}
+
+	.text {
+		font-family: "Bebas Neue";
+		font-style: normal;
+		font-weight: 700;
+		font-size: 14px;
+		line-height: 120%;
+		color: var(--base-color);
+		flex: none;
+		order: 0;
+		flex-grow: 0;
+	}
+
+	.image {
+		position: absolute;
+		display: block;
+		width: 320px;
+		height: 322px;
+		top: calc(526px / 2 - 322px / 2);
+		left: calc(526px / 2 - 320px / 2);
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+
+	.circle_detector {
+		position: absolute;
+		z-index: 11000;
+	}
+}

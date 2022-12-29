@@ -1,0 +1,122 @@
+.list {
+	display: flex;
+	justify-content: space-between;
+
+	.beta {
+		width: 421px;
+
+		&__title {
+			padding-bottom: 18px;
+			h1 {
+				font-family: "Bebas Neue";
+				font-style: normal;
+				font-weight: 400;
+				font-size: 36px;
+				line-height: 120%;
+				color: var(--main-color);
+			}
+		}
+		&__description {
+			padding-bottom: 36px;
+
+			p {
+				font-family: "Noto Sans Lao";
+				font-style: normal;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 120%;
+				color: var(--primary-color);
+				margin: 0;
+			}
+		}
+		&__form {
+			display: flex;
+			flex-direction: column;
+
+			.input {
+				padding-bottom: 18px;
+				&__label {
+					font-family: "Bebas Neue";
+					font-style: normal;
+					font-weight: 400;
+					font-size: 24px;
+					line-height: 120%;
+					color: var(--primary-color);
+					margin: 0;
+					padding-bottom: 8px;
+				}
+
+				input {
+					padding: 12px 18px;
+					background: var(--base-color);
+					border: 1px solid var(--input-border-color);
+					border-radius: 30px;
+					-webkit-appearance: none;
+					width: 100%;
+					font-family: "Noto Sans Lao";
+					color: var(--primary-color);
+					transition: all 0.3s;
+
+					&::placeholder {
+						font-family: "Noto Sans Lao";
+						font-style: normal;
+						font-weight: 400;
+						font-size: 14px;
+						line-height: 18px;
+						color: var(--primary-color);
+						opacity: 0.5;
+					}
+
+					&:hover {
+						border: 1px solid var(--input-hover-border-color);
+					}
+
+					&:focus {
+						outline: none !important;
+						border: 1px solid var(--main-color);
+					}
+
+					&:disabled {
+						opacity: 0.5;
+					}
+				}
+			}
+			button {
+				padding: 10px 24px 6px;
+				border-radius: 30px;
+				font-family: "Bebas Neue";
+				font-size: 18px;
+				line-height: 120%;
+				cursor: pointer;
+				width: max-content;
+			}
+		}
+	}
+	.participation {
+		min-width: 695px;
+
+		&__title {
+			font-family: "Bebas Neue";
+			font-style: normal;
+			font-weight: 400;
+			font-size: 36px;
+			line-height: 120%;
+			color: var(--primary-color);
+			padding-bottom: 30px;
+		}
+
+		&__parent_loader {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 695px;
+		}
+
+		&__loader {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 695px;
+		}
+	}
+}

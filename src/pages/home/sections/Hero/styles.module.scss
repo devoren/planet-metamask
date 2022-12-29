@@ -1,0 +1,117 @@
+.hero {
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+
+	&__content {
+		display: flex;
+		position: relative;
+
+		.content {
+			padding-right: 75px;
+
+			.content__title {
+				h1 {
+					font-family: "Bebas Neue";
+					font-style: normal;
+					font-weight: 700;
+					font-size: 120px;
+					line-height: 120%;
+					color: var(--primary-color);
+					letter-spacing: 2px;
+					position: relative;
+					z-index: 10;
+				}
+				span {
+					color: var(--base-color);
+					text-shadow: 0 0 1px var(--primary-color),
+						0 0 1px var(--primary-color),
+						0 0 1px var(--primary-color),
+						0 0 1px var(--primary-color);
+					letter-spacing: 2px;
+				}
+			}
+
+			.content__description {
+				p {
+					max-width: 421px;
+					font-family: "Noto Sans Lao";
+					font-style: normal;
+					font-weight: 400;
+					font-size: 16px;
+					line-height: 120%;
+					color: var(--primary-color);
+				}
+			}
+		}
+
+		.content__widget {
+			position: absolute;
+			z-index: 1;
+			right: 0;
+			top: -153px;
+		}
+	}
+
+	&__roadmap {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: relative;
+		z-index: 10;
+
+		.title {
+			font-family: "Bebas Neue";
+			font-style: normal;
+			font-weight: 400;
+			font-size: 32px;
+			letter-spacing: 1px;
+			color: var(--primary-color);
+			text-transform: uppercase;
+			padding: 0 15px 40px;
+			margin-top: 15px;
+		}
+
+		.data {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			border-bottom: 0.5px solid #d2c4c4;
+			margin-bottom: 8px;
+
+			&:last-child {
+				border: none;
+			}
+
+			&_stat {
+				font-family: "Bebas Neue";
+				font-style: normal;
+				font-weight: 400;
+				font-size: 28px;
+				line-height: 120%;
+				letter-spacing: 1px;
+				color: var(--main-color);
+				padding-top: 8px;
+				padding-bottom: 6px;
+
+				&:first-child {
+					padding-top: 0;
+				}
+			}
+
+			&_title {
+				margin: 0;
+				font-family: "Bebas Neue";
+				font-style: normal;
+				font-weight: 400;
+				font-size: 18px;
+				line-height: 120%;
+				color: var(--primary-color);
+				padding-top: 6px;
+				padding-bottom: 8px;
+			}
+		}
+	}
+}
