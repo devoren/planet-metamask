@@ -1,4 +1,3 @@
-import Layout from "antd/es/layout";
 import React from "react";
 import { useLocalStorage } from "shared/lib/browser";
 import Alert from "widgets/alert";
@@ -36,7 +35,7 @@ const Sections = () => {
 	};
 
 	return (
-		<Layout.Content>
+		<main className={styles.root}>
 			{!isExtensionInstalled ? (
 				<Alert onClick={handleExtensionAlert} />
 			) : null}
@@ -45,7 +44,7 @@ const Sections = () => {
 					<Section />
 				</SectionWrapper>
 			))}
-		</Layout.Content>
+		</main>
 	);
 };
 

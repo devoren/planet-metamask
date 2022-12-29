@@ -1,5 +1,4 @@
 import React from "react";
-import Layout from "antd/es/layout";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 import { useEthers } from "@usedapp/core";
@@ -9,14 +8,8 @@ const Header = () => {
 
 	return (
 		<>
-			<Layout.Header className={styles.root}>
-				<Link
-					className={styles.logo}
-					to="/"
-					onClick={() => {
-						console.log("[DEBUG] reachGoal: BACK_HOME");
-					}}
-				>
+			<header className={styles.root}>
+				<Link className={styles.logo} to="/">
 					<h1 className={styles.logoTitle}>LOGO</h1>
 				</Link>
 				{account ? (
@@ -26,7 +19,7 @@ const Header = () => {
 						Connect metamask
 					</button>
 				)}
-			</Layout.Header>
+			</header>
 		</>
 	);
 };

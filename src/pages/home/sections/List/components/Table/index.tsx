@@ -72,13 +72,14 @@ const Table = ({ data, onScroll, hasNextPage, page }: TableData) => {
 														? "default"
 														: "pointer",
 											}}
-											onClick={() =>
+											onClick={(e) => {
+												e.stopPropagation();
 												user?.address !==
 													userData?.address &&
-												navigate(
-													`/about/${userData.id}`
-												)
-											}
+													navigate(
+														`/about/${userData.id}`
+													);
+											}}
 										>
 											<TableRow data={userData} />
 										</tr>

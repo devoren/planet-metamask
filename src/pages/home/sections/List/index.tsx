@@ -1,5 +1,4 @@
 import { useEthers } from "@usedapp/core";
-import Spin from "antd/es/spin";
 import { selectCurrentUser } from "app/store/selectors";
 import { useAppDispatch, useAppSelector } from "app/store/types";
 import { getAccess } from "entities/viewer/model";
@@ -8,6 +7,7 @@ import { listApi, useLazyGetListQuery } from "shared/api";
 import { PageData, User } from "shared/api/typicode/models";
 import Table from "./components/Table";
 import styles from "./styles.module.scss";
+import Loader from "widgets/loader";
 
 const PER_PAGE = 20;
 
@@ -156,7 +156,7 @@ const List = () => {
 			{user ? (
 				isLoading ? (
 					<div className={styles.participation__parent_loader}>
-						<Spin delay={500} size="large" />
+						<Loader />
 					</div>
 				) : (
 					<div className={styles.participation}>
@@ -165,7 +165,7 @@ const List = () => {
 						</h1>
 						{page === 0 && isFetching ? (
 							<div className={styles.participation__loader}>
-								<Spin delay={500} size="large" />
+								<Loader />
 							</div>
 						) : (
 							<>

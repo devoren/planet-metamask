@@ -2,10 +2,13 @@
 	display: flex;
 	justify-content: space-between;
 	position: relative;
+	width: 1377px;
+	height: 416px;
 
 	&__content {
 		display: flex;
 		position: relative;
+		width: 1130px;
 
 		.content {
 			padding-right: 75px;
@@ -59,6 +62,7 @@
 		align-items: center;
 		position: relative;
 		z-index: 10;
+		width: 199px;
 
 		.title {
 			font-family: "Bebas Neue";

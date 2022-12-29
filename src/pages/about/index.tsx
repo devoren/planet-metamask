@@ -1,10 +1,9 @@
-import Layout from "antd/es/layout";
-import Spin from "antd/es/spin";
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useGetUserByIdQuery } from "shared/api";
 import { User } from "shared/api/model";
 import { useTitle } from "shared/lib/dom";
+import Loader from "widgets/loader";
 import Planet from "widgets/planet";
 import styles from "./styles.module.scss";
 
@@ -41,12 +40,12 @@ const AboutPage = () => {
 	const { data: user, isFetching, isSuccess } = useGetUserByIdQuery(id);
 
 	return (
-		<Layout.Content>
+		<main className={styles.root}>
 			<SectionWrapper>
 				<div className={styles.data}>
 					<h1>Personal Data</h1>
 					{isFetching ? (
-						<Spin delay={500} size="large" />
+						<Loader />
 					) : (
 						isSuccess && <Fields user={user} />
 					)}
@@ -55,7 +54,7 @@ const AboutPage = () => {
 					<Planet hasAnimation={false} />
 				</div>
 			</SectionWrapper>
-		</Layout.Content>
+		</main>
 	);
 };
 

@@ -1,4 +1,7 @@
 .root {
+	background-color: var(--base-color);
+	padding: 0 14%;
+
 	&Section {
 		margin-top: 96px;
 		display: flex;

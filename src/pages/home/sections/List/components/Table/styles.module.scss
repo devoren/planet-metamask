@@ -80,7 +80,7 @@
 
 			tbody tr {
 				display: table;
-				width: 100%;
+				width: calc(100% + 2px); // + scroll width
 				table-layout: fixed;
 				position: absolute;
 				top: 0;
@@ -117,11 +117,6 @@
 			}
 
 			&__body {
-				// display: block;
-				// width: calc(100% + 2px); // + scroll width
-				// height: 550px;
-				// overflow-y: auto;
-				// overflow-x: hidden;
 				width: 100%;
 				position: relative;
 
@@ -151,6 +146,13 @@
 
 					.table__my_item {
 						color: var(--main-color);
+					}
+
+					span {
+						position: absolute;
+						right: 0;
+						cursor: pointer;
+						color: var(--primary-color);
 					}
 				}
 			}

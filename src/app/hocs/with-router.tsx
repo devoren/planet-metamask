@@ -1,14 +1,10 @@
 import { Suspense } from "react";
 import { BrowserRouter } from "react-router-dom";
-import Spin from "antd/es/spin";
+import Loader from "widgets/loader";
 
 export const withRouter = (component: () => React.ReactNode) => () =>
 	(
 		<BrowserRouter>
-			<Suspense
-				fallback={<Spin delay={300} className="overlay" size="large" />}
-			>
-				{component()}
-			</Suspense>
+			<Suspense fallback={<Loader overlay />}>{component()}</Suspense>
 		</BrowserRouter>
 	);
