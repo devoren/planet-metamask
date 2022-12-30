@@ -7,7 +7,8 @@
 	background: var(--base-color) !important;
 	height: var(--header-height) !important;
 	line-height: normal !important;
-	width: 1377px;
+	width: 100%;
+	max-width: 1377px;
 	margin: 0 auto;
 
 	.logo {

@@ -1,6 +1,8 @@
 .root {
 	background-color: var(--base-color);
-	padding: 0 14%;
+	max-width: 1377px;
+	width: 100%;
+	margin: 0 auto;
 
 	&Section {
 		margin-top: 188px;

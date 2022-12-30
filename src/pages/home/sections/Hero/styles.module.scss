@@ -2,7 +2,8 @@
 	display: flex;
 	justify-content: space-between;
 	position: relative;
-	width: 1377px;
+	width: 100%;
+	max-width: 1377px;
 	height: 416px;
 
 	&__content {
