@@ -125,6 +125,11 @@ button {
 }
 
 .circle {
+	.widget__circle_detector {
+		position: absolute;
+		z-index: 10;
+	}
+
 	.circle__svg {
 		stroke-width: 1px;
 		fill: none;
@@ -156,10 +161,5 @@ button {
 		background-position: center;
 		background-size: contain;
 		background-repeat: no-repeat;
-	}
-
-	.circle_detector {
-		position: absolute;
-		z-index: 11000;
 	}
 }

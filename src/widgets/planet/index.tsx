@@ -5,6 +5,15 @@ interface PlanetProps {
 	hasAnimation: boolean;
 }
 
+function DistanceBetweenTwoPoints(
+	X: number,
+	x: number,
+	Y: number,
+	y: number
+): number {
+	return Math.sqrt((X - x) ** 2 + (Y - y) ** 2);
+}
+
 const Planet = ({ hasAnimation }: PlanetProps) => {
 	const transition = { duration: 3, yoyo: 1, ease: "linear" };
 	const transition_dot_1 = {
@@ -27,70 +36,57 @@ const Planet = ({ hasAnimation }: PlanetProps) => {
 
 	const mouseX = useMotionValue(0);
 	const mouseY = useMotionValue(0);
-	/**
-	 TODO: Bad If statements, find a better solution in the future!
-	*/
+
 	const handleMouseMove = (
 		e: React.MouseEvent<SVGCircleElement, MouseEvent>
 	) => {
 		const rect = e.currentTarget.getBoundingClientRect();
+		let X = rect.x + rect.width / 2;
+		let Y = rect.y + rect.width / 2;
+		let x = e.pageX;
+		let y = e.pageY;
+		let R = rect.width / 2;
+		let r = 161;
 
-		if (
-			e.clientX - rect.left - rect.width / 2 > 0 &&
-			e.clientY - rect.top - rect.height / 2 < 0
-		) {
-			animate(
-				mouseX,
-				e.clientX - rect.left - rect.width / 2 - rect.width / 4.5
-			);
-			animate(
-				mouseY,
-				e.clientY - rect.top - rect.height / 2 + rect.width / 4.5
-			);
-		} else if (
-			e.clientX - rect.left - rect.width / 2 < 0 &&
-			e.clientY - rect.top - rect.height / 2 > 0
-		) {
-			animate(
-				mouseX,
-				e.clientX - rect.left - rect.width / 2 + rect.width / 4.5
-			);
-			animate(
-				mouseY,
-				e.clientY - rect.top - rect.height / 2 - rect.width / 4.5
-			);
-		} else if (
-			e.clientX - rect.left - rect.width / 2 < 0 &&
-			e.clientY - rect.top - rect.height / 2 < 0
-		) {
-			animate(
-				mouseX,
-				e.clientX - rect.left - rect.width / 2 + rect.width / 4.5
-			);
-			animate(
-				mouseY,
-				e.clientY - rect.top - rect.height / 2 + rect.width / 4.5
-			);
-		} else if (
-			e.clientX - rect.left - rect.width / 2 > 0 &&
-			e.clientY - rect.top - rect.height / 2 > 0
-		) {
-			animate(
-				mouseX,
-				e.clientX - rect.left - rect.width / 2 - rect.width / 4.5
-			);
-			animate(
-				mouseY,
-				e.clientY - rect.top - rect.height / 2 - rect.width / 4.5
-			);
+		let distSq = DistanceBetweenTwoPoints(X, x, Y, y);
+
+		let lastX = e.clientX - rect.x - rect.width / 2;
+		let lastY = e.clientY - rect.y - rect.width / 2;
+
+		if (distSq + r <= R) {
+			animate(mouseX, lastX);
+			animate(mouseY, lastY);
 		} else {
-			animate(mouseX, e.clientX - rect.left - rect.width / 2);
-			animate(mouseY, e.clientY - rect.top - rect.height / 2);
+			animate(mouseX, lastX / 2.5);
+			animate(mouseY, lastY / 2.5);
 		}
 	};
 
 	return (
 		<div className="circle">
+			<div className={"widget__circle_detector"}>
+				<svg
+					width="526"
+					height="526"
+					viewBox="0 0 526 526"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<motion.circle
+						cx="263"
+						cy="263"
+						r="263"
+						fill="transparent"
+						onMouseMove={handleMouseMove}
+						onMouseEnter={handleMouseMove}
+						onMouseLeave={() => {
+							animate(mouseX, 0);
+							animate(mouseY, 0);
+						}}
+						className={"circle_detector"}
+					/>
+				</svg>
+			</div>
 			<motion.svg
 				width="526"
 				height="526"
@@ -271,21 +267,6 @@ const Planet = ({ hasAnimation }: PlanetProps) => {
 						/>
 					</filter>
 				</defs>
-				{hasAnimation ? (
-					<motion.circle
-						cx="263"
-						cy="263"
-						r="263"
-						fill="transparent"
-						onMouseMove={handleMouseMove}
-						onMouseEnter={handleMouseMove}
-						onMouseLeave={(e) => {
-							animate(mouseX, 0);
-							animate(mouseY, 0);
-						}}
-						className="circle_detector"
-					/>
-				) : null}
 			</motion.svg>
 			<motion.div
 				className="image"
